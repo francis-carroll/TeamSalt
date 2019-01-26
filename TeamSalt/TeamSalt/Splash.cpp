@@ -46,7 +46,7 @@ void SplashScreen::setupText()
 
 void SplashScreen::setupSprite()
 {
-	if (!m_playertex.loadFromFile("ASSETS/IMAGES/Characters/player.png"))
+	if (!m_playertex.loadFromFile("resources/images/characters/player.png"))
 	{
 		std::cout << "error loading player texture" << std::endl;
 	}
@@ -56,7 +56,7 @@ void SplashScreen::setupSprite()
 	m_player.setPosition(sf::Vector2f{ 900,650 });
 
 
-	if (!m_backgroundTex.loadFromFile("ASSETS/IMAGES/Backgrounds/splashScreen.png"))
+	if (!m_backgroundTex.loadFromFile("resources/images/backgrounds/splashScreen.png"))
 	{
 		std::cout << "error loading background texture" << std::endl;
 	}
