@@ -47,4 +47,11 @@ void SplashScreen::setupSprite()
 	m_player.setTextureRect(sf::IntRect{ 0,0,25,33 });
 	m_player.setPosition(sf::Vector2f{ 100,100 });
 
+
+	if (!m_backgroundTex.loadFromFile("ASSETS/IMAGES/Characters/player.png"))
+	{
+		std::cout << "error loading player texture" << std::endl;
+	}
+	m_background.setTexture(m_backgroundTex, true);
+	m_background.setPosition(sf::Vector2f{ 0, 0 });
 }
