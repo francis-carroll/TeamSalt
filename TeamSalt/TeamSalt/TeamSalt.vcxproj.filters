@@ -11,6 +11,8 @@
     <ClCompile Include="Splash.cpp" />
     <ClCompile Include="MyVector2D.cpp" />
     <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
@@ -23,5 +25,7 @@
     <ClInclude Include="Splash.h" />
     <ClInclude Include="MyVector2D.h" />
     <ClInclude Include="GamePlay.h" />
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Level.h" />
   </ItemGroup>
 </Project>
