@@ -89,5 +89,6 @@ void SplashScreen::setupMusic()
 		std::cout << "error loading music file";
 	}
 	m_titleMusic.setBuffer(m_titleMusicBuffer);
+	m_titleMusic.setLoop(true);
 	m_titleMusic.play();
 }

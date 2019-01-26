@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Splash };
+GameMode Game::m_currentMode{ GameMode::Author };
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
@@ -53,6 +53,7 @@ void Game::setup()
 		std::cout << "Error loading font file" << std::endl;
 	}
 	m_splashScreen.initialise(m_font);
+	m_authorScreen.initialise(m_font);
 }
 
 void Game::processEvents()
@@ -81,6 +82,9 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::Splash:
 		m_splashScreen.update(t_deltaTime);
 		break;
+	case GameMode::Author:
+		m_authorScreen.update(t_deltaTime);
+		break;
 	default:
 		break;
 	}
@@ -94,6 +98,9 @@ void Game::render()
 		break;
 	case GameMode::Splash:
 		m_splashScreen.draw(m_window);
+		break;
+	case GameMode::Author:
+		m_authorScreen.draw(m_window);
 		break;
 	default:
 		break;

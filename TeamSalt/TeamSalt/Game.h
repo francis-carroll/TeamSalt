@@ -5,6 +5,7 @@
 #include "Globals.h"
 #include "Licence.h"
 #include "Splash.h"
+#include "Author.h"
 #include "LevelLoader.h"
 
 // pete is cool 
@@ -28,6 +29,7 @@ private:
 	//instances of each screens
 	LicenceScreen m_licenceScreen;
 	SplashScreen m_splashScreen;
+	AuthorScreen m_authorScreen;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_font;
