@@ -2,6 +2,15 @@
 
 #include <SFML/Graphics.hpp>
 #include "Controller.h"
+#include "Globals.h"
+
+enum playerstate 
+{
+	ground,
+	jump,
+	hidden,
+	falling
+};
 
 class player
 {
@@ -28,6 +37,8 @@ private:
 
 	float xPosSprite{ 0 };
 	float yPosSprite{ 0 };
+	float rectWidth{ 25 };
+	float rectHeight{ 33 };
 
 	int animationTimer{ 0 };
 
@@ -35,6 +46,7 @@ private:
 
 	sf::Vector2f m_velocity{ 0,0 };
 
-	float time{ 1.0f / 60.0f };
+	float time{ 1.0f / 15.0f };
 
+	playerstate currentState{ ground };
 };
