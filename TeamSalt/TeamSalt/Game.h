@@ -6,6 +6,7 @@
 #include "Licence.h"
 #include "Splash.h"
 #include "LevelLoader.h"
+#include "Player.h"
 
 // pete is cool 
 
@@ -18,15 +19,14 @@ public:
 	static GameMode m_currentMode;
 
 private:
-
+	void setup();
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
 
 	LevelData m_level;
 
-	sf::Sprite bgSprite;
-	sf::Texture bgTexture;
+	player m_player;
 
 	//instances of each screens
 	LicenceScreen m_licenceScreen;

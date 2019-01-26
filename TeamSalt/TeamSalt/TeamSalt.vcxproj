@@ -125,20 +125,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Licence.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Splash.h" />
-    <ClInclude Include="Xbox360Controller.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Licence.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Splash.cpp" />
-    <ClCompile Include="Xbox360Controller.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

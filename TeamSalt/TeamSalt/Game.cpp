@@ -1,10 +1,10 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Licence };
+GameMode Game::m_currentMode{ GameMode::Splash };
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1600, 1400, 32 }, "Mimi" },
+	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
 	m_exitGame{ false }
 {
 	try
@@ -18,12 +18,7 @@ Game::Game() :
 		throw e;
 	}
 
-	if (!bgTexture.loadFromFile(".\\resources\\images\\Background.jpg"))
-	{
-		std::cout << "failure loading background image" << std::endl;
-	}
-
-	bgSprite.setTexture(bgTexture);
+	setup();
 }
 
 
@@ -52,6 +47,17 @@ void Game::run()
 	}
 }
 
+void Game::setup()
+{
+	if (!m_font.loadFromFile("resources/fonts/font.ttf"))
+	{
+		std::cout << "Error loading font file" << std::endl;
+	}
+	m_splashScreen.initialise(m_font);
+
+	m_player.init();
+}
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -76,29 +82,27 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::Licence:
 		break;
 	case GameMode::Splash:
+		m_splashScreen.update(t_deltaTime);
 		break;
 	default:
 		break;
 	}
+
+	m_player.update();
 }
 
 void Game::render()
 {
-
-	m_window.clear(sf::Color(0, 0, 0, 0));
-
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:
 		break;
 	case GameMode::Splash:
+		m_splashScreen.draw(m_window);
 		break;
 	default:
 		break;
 	}
 
-	m_window.draw(bgSprite);
-
-	m_window.display();
-	
+	//m_player.draw(m_window);
 }
