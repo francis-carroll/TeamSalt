@@ -96,7 +96,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	}
 
-	m_player.update();
+	m_player.update(t_deltaTime);
 }
 
 void Game::render()
@@ -107,7 +107,7 @@ void Game::render()
 		m_licenceScreen.render(m_window);
 		break;
 	case GameMode::Splash:
-		m_splashScreen.draw(m_window);
+		//m_splashScreen.draw(m_window);
 		break;
 	case GameMode::Author:
 		m_authorScreen.draw(m_window);
@@ -116,5 +116,5 @@ void Game::render()
 		break;
 	}
 
-	//m_player.draw(m_window);
+	m_player.draw(m_window);
 }

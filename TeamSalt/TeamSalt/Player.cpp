@@ -8,9 +8,10 @@ player::~player()
 {
 }
 
-void player::update()
+void player::update(sf::Time dt)
 {
 	animation();
+	movement(dt);
 }
 
 //initilize the player
@@ -30,6 +31,7 @@ void player::init()
 
 void player::draw(sf::RenderWindow& m_window)
 {
+	m_window.clear();
 	m_window.draw(playerSprite);
 	m_window.display();
 }
@@ -42,10 +44,16 @@ void player::animation()
 	{
 		xPosSprite += 32;
 	}
-	else if (xPosSprite >= 320)
+	else if (xPosSprite >= 288)
 	{
 		xPosSprite = 0;
 	}
 
 	playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, 25, 33));
+}
+
+void player::movement(sf::Time dt)
+{
+	playerSprite.setPosition(playerSprite.getPosition() + (m_velocity * time) + (0.5f * m_gravity * (time * time)));
+	m_velocity = m_velocity + (m_gravity * time);
 }

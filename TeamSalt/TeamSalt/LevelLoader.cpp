@@ -37,11 +37,11 @@ void operator >> (const YAML::Node& backgroundNode, BackgroundData& background)
 ///// <param name="tankNode">A YAML node</param>
 ///// <param name="tank">A simple struct to store data related to the player tank</param>
 //////////////////////////////////////////////////////////////
-//void operator >> (const YAML::Node& OozeNode, OozeData& ooze)
-//{
-//	ooze.m_position.x = OozeNode["position"]["x"].as<float>();
-//	ooze.m_position.y = OozeNode["position"]["y"].as<float>();
-//}
+void operator >> (const YAML::Node& OozeNode, OozeData& ooze)
+{
+	//ooze.m_position.x = OozeNode["position"]["x"].as<float>();
+	//ooze.m_position.y = OozeNode["position"]["y"].as<float>();
+}
 
 /// <summary>
 /// @brief Top level function that extracts various game data from the YAML data stucture.
