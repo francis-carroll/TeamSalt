@@ -20,4 +20,5 @@ private:
 	sf::Texture m_playertex;
 	sf::Font m_font;
 	sf::Text m_continueText;
+	sf::Text m_titleText;
 };
