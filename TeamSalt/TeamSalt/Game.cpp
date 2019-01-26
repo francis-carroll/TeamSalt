@@ -113,7 +113,8 @@ void Game::render()
 		m_authorScreen.draw(m_window);
 		break;
 	case GameMode::GamePlay:
-		m_gamePlayScreen.render(m_window)
+		m_gamePlayScreen.render(m_window);
+		break;
 	case GameMode::Level1:
 		m_level1.render(m_window);
 		break;
