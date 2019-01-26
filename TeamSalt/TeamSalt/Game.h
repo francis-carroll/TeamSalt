@@ -21,8 +21,8 @@ private:
 	void render();
 
 	//instances of each screens
-	Licence m_licenceScreen;
-	Splash m_splashScreen;
+	LicenceScreen m_licenceScreen;
+	SplashScreen m_splashScreen;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_font;

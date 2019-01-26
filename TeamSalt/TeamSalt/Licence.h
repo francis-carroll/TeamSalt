@@ -1,10 +1,9 @@
-#ifndef Licence
-#define Licence
 
-class Licence
+
+class LicenceScreen
 {
 public:
 private:
 };
 
-#endif
+

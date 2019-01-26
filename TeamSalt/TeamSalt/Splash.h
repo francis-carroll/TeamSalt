@@ -1,10 +1,7 @@
-#ifndef Splash
-#define Splash
 
-class Splash
+
+class SplashScreen
 {
 public:
 private:
 };
-
-#endif

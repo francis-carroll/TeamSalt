@@ -4,7 +4,7 @@
 GameMode Game::m_currentMode{ GameMode::Licence };
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 800, 600, 32 }, "Asteroids" },
+	m_window{ sf::VideoMode{ 800, 600, 32 }, "Mimi" },
 	m_exitGame{ false }
 {
 	
