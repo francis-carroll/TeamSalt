@@ -13,6 +13,7 @@ enum class GameMode
 {
 	Licence,
 	Splash,
+	Author,
 	GamePlay,
 	Pause,
 	Credits,
