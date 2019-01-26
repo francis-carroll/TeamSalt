@@ -5,6 +5,7 @@
 #include "Globals.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Level.h"
 #include <iostream>
 
 class GamePlay
@@ -20,8 +21,10 @@ private:
 	void setupText();
 	void setupSprite();
 
+	sf::View m_view;
 	player m_player;
 	Enemy m_enemy;
+	Level m_level1;
 };
 
 #endif
