@@ -6,6 +6,7 @@
 #include "Licence.h"
 #include "Splash.h"
 #include "Author.h"
+#include "Level.h"
 #include "LevelLoader.h"
 #include "Player.h"
 
@@ -33,6 +34,7 @@ private:
 	LicenceScreen m_licenceScreen;
 	SplashScreen m_splashScreen;
 	AuthorScreen m_authorScreen;
+	Level m_level1;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_font;

@@ -15,6 +15,7 @@ enum class GameMode
 	Splash,
 	Author,
 	GamePlay,
+	Level1,
 	Pause,
 	Credits,
 	LoadLevel,
