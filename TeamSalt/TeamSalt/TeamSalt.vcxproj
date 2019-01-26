@@ -130,6 +130,7 @@
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Licence.h" />
     <ClInclude Include="Splash.h" />
+    <ClInclude Include="Xbox360Controller.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Licence.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Splash.cpp" />
+    <ClCompile Include="Xbox360Controller.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
