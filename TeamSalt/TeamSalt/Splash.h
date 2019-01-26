@@ -1,5 +1,6 @@
 
 #include "SFML/Graphics.hpp"
+#include <iostream>
 class SplashScreen
 {
 public:
@@ -14,7 +15,9 @@ private:
 	void setupSprite();
 
 	sf::Sprite m_background;
+	sf::Texture m_backgroundTex;
 	sf::Sprite m_player;
+	sf::Texture m_playertex;
 	sf::Font m_font;
 	sf::Text m_continueText;
 };
