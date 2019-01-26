@@ -7,7 +7,16 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "Mimi" },
 	m_exitGame{ false }
 {
-	
+	try
+	{
+		LevelLoader::load(1, m_level);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "failure loading the level" << std::endl;
+		std::cout << e.what() << std::endl;
+		throw e;
+	}
 }
 
 
@@ -21,6 +30,7 @@ void Game::run()
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f); // 60 fps
+
 	while (m_window.isOpen())
 	{
 		processEvents(); // as many as possible
@@ -45,10 +55,7 @@ void Game::processEvents()
 			m_window.close();
 		}
 
-		/*switch (m_currentMode)
-		{
 		
-		}*/
 	}
 }
 
@@ -56,6 +63,7 @@ void Game::processEvents()
 void Game::update(sf::Time t_deltaTime)
 {
 	srand((unsigned)time(nullptr));
+
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:

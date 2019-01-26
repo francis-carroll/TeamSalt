@@ -1,0 +1,6 @@
+background:
+   file: ./resources/images/Background.jpg # Sample comment
+Ooze:
+   position: {x: 800, y: 100}
+Enemies:
+   position: {x: 400, y: 700}
