@@ -54,12 +54,9 @@ void Game::setup()
 		std::cout << "Error loading font file" << std::endl;
 	}
 	m_splashScreen.initialise(m_font);
-
-	m_player.init();
-
 	m_licenceScreen.initialise(m_font);
-
 	m_authorScreen.initialise(m_font);
+	m_gamePlayScreen.initialise(m_font);
 }
 
 void Game::processEvents()
@@ -92,11 +89,16 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::Author:
 		m_authorScreen.update(t_deltaTime);
 		break;
+	case GameMode::GamePlay:
+		m_gamePlayScreen.update(t_deltaTime);
+		break;
 	default:
 		break;
 	}
 
-	m_player.update(t_deltaTime);
+
+	//m_player.update(t_deltaTime);
+
 }
 
 void Game::render()
@@ -112,9 +114,12 @@ void Game::render()
 	case GameMode::Author:
 		m_authorScreen.draw(m_window);
 		break;
+	case GameMode::GamePlay:
+		m_gamePlayScreen.render(m_window);
+		break;
 	default:
 		break;
 	}
 
-	m_player.draw(m_window);
+	//m_player.draw(m_window);
 }

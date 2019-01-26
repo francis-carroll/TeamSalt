@@ -49,6 +49,12 @@ void SplashScreen::update(sf::Time dt)
 		Game::m_currentMode = GameMode::GamePlay;
 	}
 	m_player.setTextureRect(m_playerRect);
+
+	m_controller.update();
+	if (m_controller.m_currentState.A)
+	{
+		Game::m_currentMode = GameMode::GamePlay;
+	}
 }
 
 void SplashScreen::setupText()

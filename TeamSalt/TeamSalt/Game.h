@@ -6,9 +6,9 @@
 #include "Licence.h"
 #include "Splash.h"
 #include "Author.h"
+#include "GamePlay.h"
 #include "LevelLoader.h"
 #include "Player.h"
-
 
 // pete is cool 
 
@@ -28,12 +28,11 @@ private:
 
 	LevelData m_level;
 
-	player m_player;
-
 	//instances of each screens
 	LicenceScreen m_licenceScreen;
 	SplashScreen m_splashScreen;
 	AuthorScreen m_authorScreen;
+	GamePlay m_gamePlayScreen;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_font;

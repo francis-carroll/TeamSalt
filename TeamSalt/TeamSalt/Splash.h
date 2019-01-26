@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
+#include "Controller.h"
 #include <iostream>
 
 class SplashScreen
@@ -30,6 +31,7 @@ private:
 	sf::Text m_titleText;
 	sf::SoundBuffer m_titleMusicBuffer;
 	sf::Sound m_titleMusic;
+	Xbox360Controller m_controller;
 };
 
 #endif
