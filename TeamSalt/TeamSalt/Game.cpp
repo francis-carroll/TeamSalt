@@ -48,7 +48,7 @@ void Game::run()
 
 void Game::setup()
 {
-	if (!m_font.loadFromFile("ASSETS/FONTS/font.ttf"))
+	if (!m_font.loadFromFile("resources/fonts/font.ttf"))
 	{
 		std::cout << "Error loading font file" << std::endl;
 	}

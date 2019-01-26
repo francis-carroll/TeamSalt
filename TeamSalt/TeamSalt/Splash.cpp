@@ -1,6 +1,7 @@
 #include "Splash.h"
 
-SplashScreen::SplashScreen()
+SplashScreen::SplashScreen() :
+	m_playerRect(0, 0, 25, 33), m_timer{0}
 {
 }
 
@@ -28,36 +29,51 @@ void SplashScreen::draw(sf::RenderWindow & t_window)
 
 void SplashScreen::update(sf::Time dt)
 {
+	m_timer++;
+	if (m_timer >= 5)
+	{
+		if (m_playerRect.left >= 288)
+		{
+			m_timer = 0;
+			m_playerRect.left = 0;
+		}
+		else
+		{
+			m_timer = 0;
+			m_playerRect.left += 32;
+		}
+	}
+	m_player.setTextureRect(m_playerRect);
 }
 
 void SplashScreen::setupText()
 {
 	m_continueText.setFont(m_font);
 	m_continueText.setString("Press A to Continue");
-	m_continueText.setCharacterSize(50);
+	m_continueText.setCharacterSize(70);
 	m_continueText.setFillColor(sf::Color::White);
-	m_continueText.setPosition(sf::Vector2f{ 600.0f,800.0f });
+	m_continueText.setPosition(sf::Vector2f{ 550.0f,800.0f });
 
 	m_titleText.setFont(m_font);
 	m_titleText.setString("Mimi");
-	m_titleText.setCharacterSize(170);
+	m_titleText.setCharacterSize(200);
 	m_titleText.setFillColor(sf::Color::White);
-	m_titleText.setPosition(sf::Vector2f{ 650.0f,400.0f });
+	m_titleText.setPosition(sf::Vector2f{ 630.0f,400.0f });
 }
 
 void SplashScreen::setupSprite()
 {
-	if (!m_playertex.loadFromFile("ASSETS/IMAGES/Characters/player.png"))
+	if (!m_playertex.loadFromFile("resources/images/characters/player.png"))
 	{
 		std::cout << "error loading player texture" << std::endl;
 	}
 	m_player.setTexture(m_playertex,true);
 	m_player.setScale(15, 15);
-	m_player.setTextureRect(sf::IntRect{ 0,0,25,33 });
+	m_player.setTextureRect(m_playerRect);
 	m_player.setPosition(sf::Vector2f{ 900,650 });
 
 
-	if (!m_backgroundTex.loadFromFile("ASSETS/IMAGES/Backgrounds/splashScreen.png"))
+	if (!m_backgroundTex.loadFromFile("resources/images/backgrounds/splashScreen.png"))
 	{
 		std::cout << "error loading background texture" << std::endl;
 	}

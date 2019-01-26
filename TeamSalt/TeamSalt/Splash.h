@@ -20,6 +20,8 @@ private:
 	sf::Texture m_backgroundTex;
 	sf::Sprite m_player;
 	sf::Texture m_playertex;
+	sf::IntRect m_playerRect;
+	int m_timer;
 	sf::Font m_font;
 	sf::Text m_continueText;
 	sf::Text m_titleText;
