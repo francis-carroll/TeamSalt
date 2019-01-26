@@ -77,6 +77,7 @@ void SplashScreen::setupSprite()
 	{
 		std::cout << "error loading background texture" << std::endl;
 	}
+
 	m_background.setTexture(m_backgroundTex, true);
 	m_background.setScale(2, 2);
 	m_background.setPosition(sf::Vector2f{ 0, 0 });

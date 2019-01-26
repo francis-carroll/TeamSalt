@@ -103,8 +103,11 @@ void LicenceScreen::setupText()
 
 void LicenceScreen::setupSprite()
 {
-	/*if (!m_logoTex.loadFromFile("sfmlLogo.png"))
+	if (!m_logoTex.loadFromFile("resources/images/sfmlLogo.png"))
 	{
-
-	}*/
+		std::cout << "error loading sfml logo" << std::endl;
+	}
+	m_sfmlLogo.setTexture(m_logoTex);
+	m_sfmlLogo.setOrigin(m_sfmlLogo.getGlobalBounds().width / 2, m_sfmlLogo.getGlobalBounds().height / 2);
+	m_sfmlLogo.setPosition(SCREEN_WIDTH + m_sfmlLogo.getGlobalBounds().width,SCREEN_HEIGHT/2);
 }

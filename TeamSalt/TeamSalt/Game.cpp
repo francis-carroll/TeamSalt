@@ -56,6 +56,9 @@ void Game::setup()
 	m_splashScreen.initialise(m_font);
 
 	m_player.init();
+
+	m_licenceScreen.initialise(m_font);
+
 }
 
 void Game::processEvents()
@@ -80,6 +83,7 @@ void Game::update(sf::Time t_deltaTime)
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:
+		m_licenceScreen.update(t_deltaTime);
 		break;
 	case GameMode::Splash:
 		m_splashScreen.update(t_deltaTime);
@@ -96,6 +100,7 @@ void Game::render()
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:
+		m_licenceScreen.render(m_window);
 		break;
 	case GameMode::Splash:
 		m_splashScreen.draw(m_window);
