@@ -18,7 +18,6 @@ Game::Game() :
 		throw e;
 	}
 	setup();
-	m_splashScreen.initialise(m_font);
 }
 
 
@@ -53,6 +52,7 @@ void Game::setup()
 	{
 		std::cout << "Error loading font file" << std::endl;
 	}
+	m_splashScreen.initialise(m_font);
 }
 
 void Game::processEvents()
