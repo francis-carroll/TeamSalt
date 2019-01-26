@@ -109,5 +109,9 @@ void LicenceScreen::setupSprite()
 	}
 	m_sfmlLogo.setTexture(m_logoTex);
 	m_sfmlLogo.setOrigin(m_sfmlLogo.getGlobalBounds().width / 2, m_sfmlLogo.getGlobalBounds().height / 2);
-	m_sfmlLogo.setPosition(SCREEN_WIDTH + m_sfmlLogo.getGlobalBounds().width,SCREEN_HEIGHT/2);
+	m_sfmlLogo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT + m_sfmlLogo.getGlobalBounds().width);
+
+	distance =  m_sfmlLogo.getPosition().y - SCREEN_WIDTH / 1.5;
+	numberOfUpdates = distance / incrementation;
+	timeBudget = numberOfUpdates / 60.0f;
 }

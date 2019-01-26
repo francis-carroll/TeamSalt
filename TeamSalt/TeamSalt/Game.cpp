@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Author };
+GameMode Game::m_currentMode{ GameMode::GamePlay};
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
@@ -107,7 +107,7 @@ void Game::render()
 		m_licenceScreen.render(m_window);
 		break;
 	case GameMode::Splash:
-		//m_splashScreen.draw(m_window);
+		m_splashScreen.draw(m_window);
 		break;
 	case GameMode::Author:
 		m_authorScreen.draw(m_window);

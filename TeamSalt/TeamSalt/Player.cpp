@@ -12,6 +12,8 @@ void player::update(sf::Time dt)
 {
 	animation();
 	movement(dt);
+
+	m_controller.update();
 }
 
 //initilize the player
@@ -56,4 +58,12 @@ void player::movement(sf::Time dt)
 {
 	playerSprite.setPosition(playerSprite.getPosition() + (m_velocity * time) + (0.5f * m_gravity * (time * time)));
 	m_velocity = m_velocity + (m_gravity * time);
+
+	if (m_controller.isConnected() == true)
+	{
+		if (m_controller.m_currentState.LeftThumbStick.x != 0)
+		{
+			m_velocity = m_controller.m_currentState.LeftThumbStick;
+		}
+	}
 }
