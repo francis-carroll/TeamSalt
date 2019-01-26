@@ -43,6 +43,15 @@ void player::animation()
 {
 	animationTimer++;
 
+	if (m_controller.m_currentState.LeftThumbStick.x > 0)
+	{
+		rectWidth = -25;
+	}
+	else if (m_controller.m_currentState.LeftThumbStick.x < 0)
+	{
+		rectWidth = 25;
+	}
+
 	if ((animationTimer % 5) == 0)
 	{
 		xPosSprite += 32;
@@ -63,27 +72,29 @@ void player::animation()
 
 void player::movement(sf::Time dt)
 {
-	
 
-	playerSprite.setPosition(playerSprite.getPosition() + (m_velocity * time) + (0.5f * m_gravity * (time * time)));
+	/*playerSprite.setPosition(playerSprite.getPosition() + (m_velocity * time) + (0.5f * m_gravity * (time * time)));*/
 	
-	m_velocity = m_velocity + (m_gravity * time);
-	
+	if (currentState != ground)
+	{
+		playerSprite.setPosition(playerSprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * m_gravity * (time * time)));
+		m_velocity = m_velocity + (m_gravity * time);
+	}
+	else
+	{
+		playerSprite.setPosition(playerSprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * m_acceleration * (time * time)));
+		m_velocity = m_velocity + (m_acceleration * time);
+	}
 
 	if (m_controller.isConnected() == true)
 	{
 		if (m_controller.m_currentState.LeftThumbStick.x != 0)
 		{
-			m_velocity.x = m_controller.m_currentState.LeftThumbStick.x / 2;
-		}
+			m_velocity.x = m_controller.m_currentState.LeftThumbStick.x;
+			m_velocity.x - 10;
+			m_velocity.normalise();
 
-		if (m_controller.m_currentState.LeftThumbStick.x > 0)
-		{
-			rectWidth = -25;
-		}
-		else if (m_controller.m_currentState.LeftThumbStick.x < 0)
-		{
-			rectWidth = 25;
+			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity);
 		}
 
 		if (currentState != falling && currentState != jump)
@@ -96,13 +107,15 @@ void player::movement(sf::Time dt)
 		}
 	}
 
-	if (playerSprite.getPosition().y >= SCREEN_HEIGHT - (playerSprite.getTextureRect().height * 3) && m_velocity.y > 0)
+	if (playerSprite.getPosition().y >= 1100)
 	{
 		m_velocity.y = 0;
 		currentState = ground;
 	}
-	if (playerSprite.getPosition().x <= 0 - (playerSprite.getTextureRect().width * 3))
+
+	if (playerSprite.getPosition().x <= 0 + (playerSprite.getTextureRect().width * 3) 
+		|| playerSprite.getPosition().x >= SCREEN_WIDTH + (playerSprite.getTextureRect().width * 3))
 	{
-		;
+		m_velocity.x = 0;
 	}
 }

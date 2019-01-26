@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Controller.h"
 #include "Globals.h"
+#include "MyVector2D.h"
 
 enum playerstate 
 {
@@ -44,9 +45,11 @@ private:
 
 	const sf::Vector2f m_gravity{ 0, 9.8 };
 
-	sf::Vector2f m_velocity{ 0,0 };
+	MyVector2D m_velocity{ 0,0 };
 
-	float time{ 1.0f / 15.0f };
+	sf::Vector2f m_acceleration{ 0,0 };
+
+	float time{ 1.0f / 5.0f };
 
 	playerstate currentState{ ground };
 };
