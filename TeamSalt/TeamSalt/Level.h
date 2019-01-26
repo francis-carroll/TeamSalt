@@ -23,5 +23,9 @@ private:
 	sf::Texture m_bgLayer2Tex;
 	sf::Sprite m_bgLayer3;
 	sf::Texture m_bgLayer3Tex;
+
+	sf::Sprite m_background;
+	sf::Texture m_texture;
+
 	sf::Vector2f m_pos;
 };

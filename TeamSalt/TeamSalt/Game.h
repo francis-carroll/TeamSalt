@@ -7,7 +7,6 @@
 #include "Splash.h"
 #include "Author.h"
 #include "GamePlay.h"
-#include "Level.h"
 #include "LevelLoader.h"
 #include "Player.h"
 
@@ -34,7 +33,6 @@ private:
 	SplashScreen m_splashScreen;
 	AuthorScreen m_authorScreen;
 	GamePlay m_gamePlayScreen;
-	Level m_level1;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_font;
