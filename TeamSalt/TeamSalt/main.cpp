@@ -12,6 +12,7 @@
 #pragma comment(lib,"sfml-network.lib") 
 #endif 
 
+#pragma comment(lib,"lib/libyaml-cppmdd")
 
 #include "Game.h"
 

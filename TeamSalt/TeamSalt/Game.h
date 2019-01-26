@@ -5,6 +5,9 @@
 #include "Globals.h"
 #include "Licence.h"
 #include "Splash.h"
+#include "LevelLoader.h"
+
+// pete is cool 
 
 class Game
 {
@@ -19,6 +22,11 @@ private:
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
+
+	LevelData m_level;
+
+	sf::Sprite bgSprite;
+	sf::Texture bgTexture;
 
 	//instances of each screens
 	LicenceScreen m_licenceScreen;
