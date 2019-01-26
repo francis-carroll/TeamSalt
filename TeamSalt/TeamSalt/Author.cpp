@@ -1,4 +1,5 @@
 #include "Author.h"
+#include "Game.h"
 
 AuthorScreen::AuthorScreen()
 {
@@ -26,8 +27,22 @@ void AuthorScreen::draw(sf::RenderWindow & t_window)
 
 void AuthorScreen::update(sf::Time dt)
 {
-	m_logo.setColor(m_logo.getColor() + sf::Color{ 0,0,0,5 });
-	m_madeBytext.setFillColor(m_madeBytext.getFillColor() + sf::Color{ 0,0,0,5 });
+	m_timer += dt;
+	if (m_timer.asSeconds() >= 1 && m_timer.asSeconds() < 3)
+	{
+		m_logo.setColor(m_logo.getColor() + sf::Color{ 0,0,0,5 });
+		m_madeBytext.setFillColor(m_madeBytext.getFillColor() + sf::Color{ 0,0,0,5 });
+	}
+	if (m_timer.asSeconds() >= 3 && m_timer.asSeconds() < 4)
+	{
+		m_logo.setColor(m_logo.getColor() - sf::Color{ 0,0,0,5 });
+		m_madeBytext.setFillColor(m_madeBytext.getFillColor() - sf::Color{ 0,0,0,5 });
+	}
+
+	if (m_timer.asSeconds() > 4)
+	{
+		Game::m_currentMode = GameMode::Splash;
+	}
 }
 
 void AuthorScreen::setupText()

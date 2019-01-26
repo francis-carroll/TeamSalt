@@ -1,3 +1,6 @@
+#ifndef SPLASH
+#define SPLASH
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include <iostream>
@@ -28,3 +31,5 @@ private:
 	sf::SoundBuffer m_titleMusicBuffer;
 	sf::Sound m_titleMusic;
 };
+
+#endif

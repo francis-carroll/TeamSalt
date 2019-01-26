@@ -1,3 +1,6 @@
+#ifndef AUTHOR
+#define AUTHOR
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include <iostream>
@@ -20,4 +23,7 @@ private:
 	sf::Texture m_logoTex;
 	sf::Text m_madeBytext;
 	sf::Font m_font;
+	sf::Time m_timer;
 };
+
+#endif

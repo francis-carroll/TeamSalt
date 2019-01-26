@@ -1,4 +1,5 @@
 #include "Splash.h"
+#include "Game.h"
 
 SplashScreen::SplashScreen() :
 	m_playerRect(0, 0, 25, 33), m_timer{0}
@@ -42,6 +43,10 @@ void SplashScreen::update(sf::Time dt)
 			m_timer = 0;
 			m_playerRect.left += 32;
 		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		Game::m_currentMode = GameMode::GamePlay;
 	}
 	m_player.setTextureRect(m_playerRect);
 }
