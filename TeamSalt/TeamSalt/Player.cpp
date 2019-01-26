@@ -24,6 +24,7 @@ void player::init()
 		std::cout << "error opening player image" << std::endl;
 	}
 
+
 	playerSprite.setTexture(playerTexture);
 	playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, rectWidth, rectHeight));
 	playerSprite.setScale(5, 5);

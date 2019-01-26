@@ -1,4 +1,5 @@
 #include "Licence.h"
+#include "Game.h"
 
 LicenceScreen::LicenceScreen()
 {
@@ -23,6 +24,7 @@ void LicenceScreen::render(sf::RenderWindow & t_window)
 	{
 		t_window.draw(m_sfmlLogo);
 	}
+	t_window.draw(m_sfmlText);
 
 	t_window.display();
 }
@@ -35,7 +37,7 @@ void LicenceScreen::update(sf::Time dt)
 	{
 		m_animationState = AnimationState::None;
 
-		distance = m_sfmlLogo.getPosition().y - (SCREEN_HEIGHT / 4.0);
+		distance = m_sfmlLogo.getPosition().y - (SCREEN_HEIGHT / 3.0);
 		numberOfUpdates = distance / incrementation;
 		timeBudget = numberOfUpdates / 60.0f;
 
@@ -46,7 +48,7 @@ void LicenceScreen::update(sf::Time dt)
 	if (m_animationTimer.asSeconds() > timeBudget && m_animationState == AnimationState::None)
 	{
 		m_animationState = AnimationState::Disappear;
-
+		
 		distance = (SCREEN_WIDTH + m_sfmlLogo.getGlobalBounds().width * 2.0) - m_sfmlLogo.getPosition().x;
 		numberOfUpdates = distance / incrementation;
 		timeBudget = numberOfUpdates / 60.0f;
@@ -85,6 +87,11 @@ void LicenceScreen::update(sf::Time dt)
 
 	if (m_animationTimer.asSeconds() < timeBudget && m_animationState == AnimationState::Disappear)
 	{
+		if (m_sfmlText.getFillColor().a < 255)
+		{
+			m_sfmlText.setFillColor(m_sfmlText.getFillColor() + sf::Color(0.0f, 0.0f, 0.0f, 3.0f));
+		}
+
 		if (m_animationTimer.asSeconds() > (timeBudget / 2.0))
 		{
 			m_sfmlLogo.setPosition(m_sfmlLogo.getPosition().x + incrementation, m_sfmlLogo.getPosition().y);
@@ -95,21 +102,39 @@ void LicenceScreen::update(sf::Time dt)
 			}
 		}
 	}
+
+	if (m_sfmlLogo.getPosition().x >= 1600)
+	{
+		if (m_sfmlText.getFillColor().a > 0)
+		{
+			m_sfmlText.setFillColor(m_sfmlText.getFillColor() - sf::Color(0.0f, 0.0f, 0.0f, 3.0f));
+		}
+		if (m_sfmlText.getFillColor().a <= 0)
+		{
+			Game::m_currentMode = GameMode::Author;
+		}
+	}
 }
 
 void LicenceScreen::setupText()
 {
+	m_sfmlText.setFont(m_font);
+	m_sfmlText.setCharacterSize(200);
+	m_sfmlText.setString("Made using SFML");
+	m_sfmlText.setPosition(150.0f, 650.0f);
+	m_sfmlText.setFillColor(sf::Color(255.0f,255.0f,255.0f,0.0f));
 }
 
 void LicenceScreen::setupSprite()
 {
-	if (!m_logoTex.loadFromFile("resources/images/sfmlLogo.png"))
+	if (!m_logoTex.loadFromFile("resources/images/logoSFML.png"))
 	{
 		std::cout << "error loading sfml logo" << std::endl;
 	}
 	m_sfmlLogo.setTexture(m_logoTex);
 	m_sfmlLogo.setOrigin(m_sfmlLogo.getGlobalBounds().width / 2, m_sfmlLogo.getGlobalBounds().height / 2);
 	m_sfmlLogo.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT + m_sfmlLogo.getGlobalBounds().width);
+	m_sfmlLogo.setScale(2.5, 2.5);
 
 	distance =  m_sfmlLogo.getPosition().y - SCREEN_WIDTH / 1.5;
 	numberOfUpdates = distance / incrementation;
