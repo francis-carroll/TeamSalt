@@ -57,6 +57,7 @@ void Game::setup()
 	m_licenceScreen.initialise(m_font);
 	m_authorScreen.initialise(m_font);
 	m_gamePlayScreen.initialise(m_font);
+	
 }
 
 void Game::processEvents()

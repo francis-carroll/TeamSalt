@@ -15,10 +15,11 @@ void Level::initialise(sf::Font & t_font)
 
 void Level::render(sf::RenderWindow & t_window)
 {
-	t_window.draw(m_sky);
+	/*t_window.draw(m_sky);
 	t_window.draw(m_bgLayer1);
 	t_window.draw(m_bgLayer2);
-	t_window.draw(m_bgLayer3);
+	t_window.draw(m_bgLayer3);*/
+	t_window.draw(m_background);
 }
 
 void Level::update(sf::Time dt)
@@ -27,7 +28,7 @@ void Level::update(sf::Time dt)
 
 void Level::setupSprite()
 {
-	if (!m_bgLayer1Tex.loadFromFile("resources/images/backgrounds/cityScape3.png"))
+	/*if (!m_bgLayer1Tex.loadFromFile("resources/images/backgrounds/cityScape3.png"))
 	{
 		std::cout << "Error loading bglayer3" << std::endl;
 	}
@@ -53,7 +54,14 @@ void Level::setupSprite()
 	m_bgLayer2.setPosition(sf::Vector2f{ 40.0f,-900.0f });
 	m_bgLayer3.setTexture(m_bgLayer3Tex);
 	m_bgLayer3.setScale(2, 2);
-	m_bgLayer3.setPosition(sf::Vector2f{ 0.0f,-800.0f });
+	m_bgLayer3.setPosition(sf::Vector2f{ 0.0f,-800.0f });*/
+	if (!m_texture.loadFromFile("resources/images/backgrounds/level1Screen.png"))
+	{
+		std::cout << "Error loading level1Screen" << std::endl;
+	}
+	m_background.setTexture(m_texture);
+	m_background.setScale(2, 2);
+	m_background.setPosition(sf::Vector2f{ 0.0,0.0});
 }
 
 void Level::setupText()
