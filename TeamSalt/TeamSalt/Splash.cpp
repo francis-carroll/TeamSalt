@@ -13,6 +13,7 @@ void SplashScreen::initialise(sf::Font & t_font)
 	m_font = t_font;
 	setupText();
 	setupSprite();
+	setupMusic();
 }
 
 void SplashScreen::draw(sf::RenderWindow & t_window)
@@ -63,4 +64,14 @@ void SplashScreen::setupSprite()
 	m_background.setTexture(m_backgroundTex, true);
 	m_background.setScale(2, 2);
 	m_background.setPosition(sf::Vector2f{ 0, 0 });
+}
+
+void SplashScreen::setupMusic()
+{
+	if (!m_titleMusicBuffer.loadFromFile("resources/music/titleScreen.ogg"))
+	{
+		std::cout << "error loading music file";
+	}
+	m_titleMusic.setBuffer(m_titleMusicBuffer);
+	m_titleMusic.play();
 }
