@@ -16,7 +16,7 @@ void player::update()
 //initilize the player
 void player::init()
 {
-	if (!playerTexture.loadFromFile("ASSETS\\IMAGES\\Characters\\player.png"))
+	if (!playerTexture.loadFromFile("resources\\images\\Characters\\player.png"))
 	{
 		std::cout << "error opening player image" << std::endl;
 	}
