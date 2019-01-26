@@ -15,6 +15,8 @@ private:
 	void setupSprite();
 	void setupText();
 
+	sf::Sprite m_sky;
+	sf::Texture m_skyTex;
 	sf::Sprite m_bgLayer1;
 	sf::Texture m_bgLayer1Tex;
 	sf::Sprite m_bgLayer2;
