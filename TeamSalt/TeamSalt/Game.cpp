@@ -64,12 +64,10 @@ void Game::processEvents()
 	sf::Event event;
 	while (m_window.pollEvent(event))
 	{
-		if (sf::Event::Closed == event.type) // window message
+		if (sf::Event::Closed == event.type)
 		{
 			m_window.close();
 		}
-
-		
 	}
 }
 
@@ -95,10 +93,6 @@ void Game::update(sf::Time t_deltaTime)
 	default:
 		break;
 	}
-
-
-	//m_player.update(t_deltaTime);
-
 }
 
 void Game::render()
@@ -120,6 +114,4 @@ void Game::render()
 	default:
 		break;
 	}
-
-	//m_player.draw(m_window);
 }

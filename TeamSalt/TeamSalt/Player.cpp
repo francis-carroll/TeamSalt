@@ -1,6 +1,7 @@
 #include "Player.h"
 
-player::player()
+player::player() :
+	m_move(false)
 {
 }
 
@@ -23,8 +24,6 @@ void player::init()
 	{
 		std::cout << "error opening player image" << std::endl;
 	}
-
-
 	playerSprite.setTexture(playerTexture);
 	playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, rectWidth, rectHeight));
 	playerSprite.setScale(5, 5);
@@ -86,15 +85,28 @@ void player::movement(sf::Time dt)
 		m_velocity = m_velocity + (m_acceleration * time);
 	}
 
+	if (m_velocity.x <= 5)
+	{
+		m_velocity.x = 0;
+	}
+	else
+	{
+		m_velocity = m_velocity * 0.99;
+	}
+
 	if (m_controller.isConnected() == true)
 	{
-		if (m_controller.m_currentState.LeftThumbStick.x != 0)
+		if (m_controller.m_currentState.LeftThumbStick.x >= 50 || m_controller.m_currentState.LeftThumbStick.x <= -50)
 		{
-			m_velocity.x = m_controller.m_currentState.LeftThumbStick.x;
-			m_velocity.x - 10;
-			m_velocity.normalise();
+			m_move = true;
+		}
 
-			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity);
+		if (m_move)
+		{
+			m_velocity.x = m_controller.m_currentState.LeftThumbStick.x/ 3;
+			std::cout << m_velocity.x << std::endl;
+
+			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity.x, m_velocity.y);
 		}
 
 		if (currentState != falling && currentState != jump)
