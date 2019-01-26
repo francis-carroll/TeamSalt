@@ -48,11 +48,12 @@ void Game::run()
 
 void Game::setup()
 {
-	if (!m_font.loadFromFile("ASSETS/FONTS/font.ttf"))
+	if (!m_font.loadFromFile("resources/fonts/font.ttf"))
 	{
 		std::cout << "Error loading font file" << std::endl;
 	}
 	m_splashScreen.initialise(m_font);
+	m_licenceScreen.initialise(m_font);
 }
 
 void Game::processEvents()
@@ -77,6 +78,7 @@ void Game::update(sf::Time t_deltaTime)
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:
+		m_licenceScreen.update(t_deltaTime);
 		break;
 	case GameMode::Splash:
 		m_splashScreen.update(t_deltaTime);
@@ -91,6 +93,7 @@ void Game::render()
 	switch (m_currentMode)
 	{
 	case GameMode::Licence:
+		m_licenceScreen.render(m_window);
 		break;
 	case GameMode::Splash:
 		m_splashScreen.draw(m_window);

@@ -1,5 +1,6 @@
 #include "SFML/Graphics.hpp"
 #include "Globals.h"
+#include <iostream>
 
 class LicenceScreen
 {
