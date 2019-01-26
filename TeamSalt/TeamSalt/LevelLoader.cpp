@@ -10,13 +10,12 @@
 /// <param name="obstacleNode">A YAML node</param>
 /// <param name="obstacle">A simple struct to store the obstacle data</param>
 ////////////////////////////////////////////////////////////
-//void operator >> (const YAML::Node& obstacleNode, ObstacleData& obstacle)
-//{
-//	obstacle.m_type = obstacleNode["type"].as<std::string>();
-//	obstacle.m_position.x = obstacleNode["position"]["x"].as<float>();
-//	obstacle.m_position.y = obstacleNode["position"]["y"].as<float>();
-//	obstacle.m_rotation = obstacleNode["rotation"].as<double>();
-//}
+void operator >> (const YAML::Node& obstacleNode, ObstacleData& obstacle)
+{
+	obstacle.m_type = obstacleNode["type"].as<std::string>();
+	obstacle.m_position.x = obstacleNode["position"]["x"].as<float>();
+	obstacle.m_position.y = obstacleNode["position"]["y"].as<float>();
+}
 
 /// <summary>
 /// @brief Extracts the filename for the game background texture.
@@ -56,7 +55,16 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 {
 	levelNode["background"] >> level.m_background;
 
-	//levelNode["ooze"] >> level.m_Ooze;
+	levelNode["Ooze"] >> level.m_Ooze;
+
+	const YAML::Node& obstaclesNode = levelNode["Obstacle"].as<YAML::Node>();
+
+	for (unsigned i = 0; i < obstaclesNode.size(); ++i)
+	{
+		ObstacleData obstacle;
+		obstaclesNode[i] >> obstacle;
+		level.m_obstacles.push_back(obstacle);
+	}
 }
 
 ////////////////////////////////////////////////////////////

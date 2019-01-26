@@ -11,12 +11,11 @@
 /// @brief A struct to represent Obstacle data in the level.
 /// 
 /// </summary>
-//struct ObstacleData
-//{
-//	std::string m_type;
-//	sf::Vector2f m_position;
-//	double m_rotation;
-//};
+struct ObstacleData
+{
+	std::string m_type;
+	sf::Vector2f m_position;
+};
 
 /// <summary>
 /// @brief A struct to store Background texture information.
@@ -46,7 +45,7 @@ struct LevelData
 	BackgroundData m_background;
 	OozeData m_Ooze;
 	
-	//std::vector<ObstacleData> m_obstacles;
+	std::vector<ObstacleData> m_obstacles;
 	//std::vector<TargetData> m_targets;
 };
 
