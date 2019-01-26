@@ -1,6 +1,10 @@
+#ifndef LICENCE
+#define LICENCE
+
 #include "SFML/Graphics.hpp"
 #include "Globals.h"
 #include <iostream>
+
 
 class LicenceScreen
 {
@@ -24,5 +28,7 @@ private:
 
 	sf::Sprite m_sfmlLogo;
 	sf::Texture m_logoTex;
+	sf::Text m_sfmlText;
 	sf::Font m_font;
 };
+#endif

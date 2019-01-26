@@ -19,16 +19,16 @@ void player::update(sf::Time dt)
 //initilize the player
 void player::init()
 {
-	if (!playerTexture.loadFromFile("resources\\images\\Characters\\player.png"))
-	{
-		std::cout << "error opening player image" << std::endl;
-	}
+	//if (!playerTexture.loadFromFile("resources\\images\\Characters\\player.png"))
+	//{
+	//	std::cout << "error opening player image" << std::endl;
+	//}
 
-	playerSprite.setTexture(playerTexture);
-	playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, 25, 33));
-	playerSprite.setScale(5, 5);
-	playerSprite.setOrigin(12.5f, 16.5f);
-	playerSprite.setPosition(800, 600);
+	//playerSprite.setTexture(playerTexture);
+	//playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, 25, 33));
+	//playerSprite.setScale(5, 5);
+	//playerSprite.setOrigin(12.5f, 16.5f);
+	//playerSprite.setPosition(800, 600);
 }
 
 void player::draw(sf::RenderWindow& m_window)

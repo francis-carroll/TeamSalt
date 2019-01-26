@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::GamePlay};
+GameMode Game::m_currentMode{ GameMode::Licence};
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
@@ -96,7 +96,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	}
 
-	m_player.update(t_deltaTime);
+//	m_player.update(t_deltaTime);
 }
 
 void Game::render()
@@ -116,5 +116,5 @@ void Game::render()
 		break;
 	}
 
-	m_player.draw(m_window);
+	//m_player.draw(m_window);
 }
