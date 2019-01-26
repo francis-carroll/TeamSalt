@@ -15,12 +15,10 @@ void Level::initialise(sf::Font & t_font)
 
 void Level::render(sf::RenderWindow & t_window)
 {
-	t_window.clear(sf::Color::White);
 	t_window.draw(m_sky);
 	t_window.draw(m_bgLayer1);
 	t_window.draw(m_bgLayer2);
 	t_window.draw(m_bgLayer3);
-	t_window.display();
 }
 
 void Level::update(sf::Time dt)

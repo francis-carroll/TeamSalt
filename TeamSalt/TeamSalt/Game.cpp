@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Level1};
+GameMode Game::m_currentMode{ GameMode::GamePlay};
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
@@ -57,7 +57,6 @@ void Game::setup()
 	m_licenceScreen.initialise(m_font);
 	m_authorScreen.initialise(m_font);
 	m_gamePlayScreen.initialise(m_font);
-	m_level1.initialise(m_font);
 }
 
 void Game::processEvents()
@@ -90,9 +89,6 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	case GameMode::GamePlay:
 		m_gamePlayScreen.update(t_deltaTime);
-	case GameMode::Level1:
-		m_level1.update(t_deltaTime);
-
 		break;
 	default:
 		break;
@@ -114,9 +110,6 @@ void Game::render()
 		break;
 	case GameMode::GamePlay:
 		m_gamePlayScreen.render(m_window);
-		break;
-	case GameMode::Level1:
-		m_level1.render(m_window);
 		break;
 	default:
 		break;

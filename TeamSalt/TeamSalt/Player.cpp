@@ -33,9 +33,7 @@ void player::init()
 
 void player::draw(sf::RenderWindow& m_window)
 {
-	m_window.clear();
 	m_window.draw(playerSprite);
-	m_window.display();
 }
 
 void player::animation()

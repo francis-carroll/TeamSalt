@@ -4,6 +4,7 @@
 #include "SFML/Graphics.hpp"
 #include "Globals.h"
 #include "Player.h"
+#include "Level.h"
 #include <iostream>
 
 class GamePlay
@@ -20,6 +21,7 @@ private:
 	void setupSprite();
 
 	player m_player;
+	Level m_level1;
 };
 
 #endif
