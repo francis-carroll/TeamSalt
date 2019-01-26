@@ -1,10 +1,10 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Licence };
+GameMode Game::m_currentMode{ GameMode::Splash };
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 800, 600, 32 }, "Mimi" },
+	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
 	m_exitGame{ false }
 {
 	try
@@ -17,6 +17,8 @@ Game::Game() :
 		std::cout << e.what() << std::endl;
 		throw e;
 	}
+	setup();
+	m_splashScreen.initialise(m_font);
 }
 
 
@@ -45,6 +47,14 @@ void Game::run()
 	}
 }
 
+void Game::setup()
+{
+	if (!m_font.loadFromFile("ASSETS/FONTS/font.ttf"))
+	{
+		std::cout << "Error loading font file" << std::endl;
+	}
+}
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -69,6 +79,7 @@ void Game::update(sf::Time t_deltaTime)
 	case GameMode::Licence:
 		break;
 	case GameMode::Splash:
+		m_splashScreen.update(t_deltaTime);
 		break;
 	default:
 		break;
@@ -82,6 +93,7 @@ void Game::render()
 	case GameMode::Licence:
 		break;
 	case GameMode::Splash:
+		m_splashScreen.draw(m_window);
 		break;
 	default:
 		break;

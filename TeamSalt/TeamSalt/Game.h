@@ -18,7 +18,7 @@ public:
 	static GameMode m_currentMode;
 
 private:
-
+	void setup();
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
