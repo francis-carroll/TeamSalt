@@ -88,7 +88,7 @@ void Game::update(sf::Time t_deltaTime)
 		break;
 	}
 
-	m_player.update();
+	m_player.update(t_deltaTime);
 }
 
 void Game::render()
@@ -98,11 +98,11 @@ void Game::render()
 	case GameMode::Licence:
 		break;
 	case GameMode::Splash:
-		m_splashScreen.draw(m_window);
+		//m_splashScreen.draw(m_window);
 		break;
 	default:
 		break;
 	}
 
-	//m_player.draw(m_window);
+	m_player.draw(m_window);
 }

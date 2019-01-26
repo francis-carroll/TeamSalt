@@ -39,8 +39,8 @@ void operator >> (const YAML::Node& backgroundNode, BackgroundData& background)
 //////////////////////////////////////////////////////////////
 void operator >> (const YAML::Node& OozeNode, OozeData& ooze)
 {
-	ooze.m_position.x = OozeNode["position"]["x"].as<float>();
-	ooze.m_position.y = OozeNode["position"]["y"].as<float>();
+	//ooze.m_position.x = OozeNode["position"]["x"].as<float>();
+	//ooze.m_position.y = OozeNode["position"]["y"].as<float>();
 }
 
 /// <summary>
@@ -56,7 +56,7 @@ void operator >> (const YAML::Node& levelNode, LevelData& level)
 {
 	levelNode["background"] >> level.m_background;
 
-	levelNode["ooze"] >> level.m_Ooze;
+	//levelNode["ooze"] >> level.m_Ooze;
 }
 
 ////////////////////////////////////////////////////////////
