@@ -5,7 +5,6 @@
 #include "Globals.h"
 #include <iostream>
 
-
 class LicenceScreen
 {
 public:

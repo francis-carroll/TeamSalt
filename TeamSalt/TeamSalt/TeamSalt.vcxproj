@@ -128,6 +128,7 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Author.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GamePlay.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Licence.h" />
@@ -138,6 +139,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Author.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GamePlay.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Licence.cpp" />
     <ClCompile Include="main.cpp" />
