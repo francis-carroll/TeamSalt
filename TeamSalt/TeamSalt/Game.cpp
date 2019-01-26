@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::GamePlay};
+GameMode Game::m_currentMode{ GameMode::Licence};
 
 Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },

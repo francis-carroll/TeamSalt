@@ -28,7 +28,7 @@ void player::init()
 	playerSprite.setTextureRect(sf::IntRect(xPosSprite, yPosSprite, rectWidth, rectHeight));
 	playerSprite.setScale(5, 5);
 	playerSprite.setOrigin(rectWidth / 2.0f, rectHeight / 2.0f);
-	playerSprite.setPosition(800, 600);
+	playerSprite.setPosition(850, 600);
 }
 
 void player::draw(sf::RenderWindow& m_window)
@@ -69,8 +69,6 @@ void player::animation()
 
 void player::movement(sf::Time dt)
 {
-
-	/*playerSprite.setPosition(playerSprite.getPosition() + (m_velocity * time) + (0.5f * m_gravity * (time * time)));*/
 	
 	if (currentState != ground)
 	{
@@ -83,14 +81,6 @@ void player::movement(sf::Time dt)
 		m_velocity = m_velocity + (m_acceleration * time);
 	}
 
-	if (m_velocity.x <= 5)
-	{
-		m_velocity.x = 0;
-	}
-	else
-	{
-		m_velocity = m_velocity * 0.99;
-	}
 
 	if (m_controller.isConnected() == true)
 	{
@@ -102,15 +92,14 @@ void player::movement(sf::Time dt)
 		if (m_move)
 		{
 			m_velocity.x = m_controller.m_currentState.LeftThumbStick.x/ 3;
-			std::cout << m_velocity.x << std::endl;
 
 			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity.x, m_velocity.y);
 		}
 
-		if (playerSprite.getPosition().y > 1100 && currentState == falling)
+		if (playerSprite.getPosition().y > 1800 && currentState == falling)
 		{
 			m_velocity.y = 0;
-			m_acceleration.y = 0;
+			m_acceleration.y = 0; 
 			currentState = ground;
 		}
 
@@ -125,11 +114,16 @@ void player::movement(sf::Time dt)
 		}
 	}
 
-	
-
-	if (playerSprite.getPosition().x <= 0 + (playerSprite.getTextureRect().width * 3) 
-		|| playerSprite.getPosition().x >= SCREEN_WIDTH + (playerSprite.getTextureRect().width * 3))
+	std::cout << playerSprite.getPosition().x << std::endl;
+	if (playerSprite.getPosition().x <= 750 + (playerSprite.getTextureRect().width * 3) )
 	{
+		playerSprite.setPosition(playerSprite.getPosition() + sf::Vector2f{ 1.0f,0.0f });
+		m_velocity.x = 0;
+		m_acceleration.x = 0;
+	}
+	if (playerSprite.getPosition().x >= (SCREEN_WIDTH * 3) - 750 + (playerSprite.getTextureRect().width * 3))
+	{
+		playerSprite.setPosition(playerSprite.getPosition() - sf::Vector2f{ 1.0f,0.0f });
 		m_velocity.x = 0;
 		m_acceleration.x = 0;
 	}

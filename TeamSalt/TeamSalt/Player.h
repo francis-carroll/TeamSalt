@@ -53,7 +53,7 @@ private:
 
 	float time{ 1.0f / 5.0f };
 
-	playerstate currentState{ ground };
+	playerstate currentState{ falling };
 
 	bool m_move;
 };
