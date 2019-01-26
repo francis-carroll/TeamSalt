@@ -29,6 +29,8 @@ public:
 
 	void movement(sf::Time dt);
 
+	sf::Vector2f getPos();
+
 private:
 
 	sf::Sprite playerSprite;

@@ -20,6 +20,7 @@ private:
 	void setupText();
 	void setupSprite();
 
+	sf::View m_view;
 	player m_player;
 	Level m_level1;
 };

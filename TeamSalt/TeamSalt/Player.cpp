@@ -134,3 +134,8 @@ void player::movement(sf::Time dt)
 		m_acceleration.x = 0;
 	}
 }
+
+sf::Vector2f player::getPos()
+{
+	return playerSprite.getPosition();
+}
