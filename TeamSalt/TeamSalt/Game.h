@@ -6,6 +6,7 @@
 #include "Licence.h"
 #include "Splash.h"
 #include "LevelLoader.h"
+#include "Player.h"
 
 // pete is cool 
 
@@ -24,6 +25,8 @@ private:
 	void render();
 
 	LevelData m_level;
+
+	player m_player;
 
 	//instances of each screens
 	LicenceScreen m_licenceScreen;
