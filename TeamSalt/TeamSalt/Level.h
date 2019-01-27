@@ -19,14 +19,6 @@ private:
 	void setupText();
 	void setupTiles();
 
-	sf::Sprite m_sky;
-	sf::Texture m_skyTex;
-	sf::Sprite m_bgLayer1;
-	sf::Texture m_bgLayer1Tex;
-	sf::Sprite m_bgLayer2;
-	sf::Texture m_bgLayer2Tex;
-	sf::Sprite m_bgLayer3;
-	sf::Texture m_bgLayer3Tex;
 
 	sf::Sprite m_background;
 	sf::Texture m_texture;
