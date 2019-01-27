@@ -27,6 +27,6 @@ const int SCREEN_HEIGHT = 1200;
 
 const sf::Vector2f GRAVITY{ 0.0f, 9.8f };
 
-static const int MAX_TILES = 100;
+static const int MAX_TILES = 38;
 
 #endif

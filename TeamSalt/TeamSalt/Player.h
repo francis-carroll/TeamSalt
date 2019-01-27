@@ -38,6 +38,8 @@ private:
 
 	sf::Sprite playerSprite;
 	sf::Texture playerTexture;
+	sf::Sprite playerBox;
+	sf::Texture playerBoxTex;
 
 	Xbox360Controller m_controller;
 
@@ -59,6 +61,8 @@ private:
 	float time{ 1.0f / 5.0f };
 
 	playerstate currentState{ falling };
+
+	int scale = 0;
 
 	bool m_move;
 };
