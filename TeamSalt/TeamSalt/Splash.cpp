@@ -2,7 +2,7 @@
 #include "Game.h"
 
 SplashScreen::SplashScreen() :
-	m_playerRect(0, 0, 25, 33), m_timer{0}
+	m_playerRect(0, 0, 13, 10), m_timer{0}
 {
 }
 
@@ -33,7 +33,7 @@ void SplashScreen::update(sf::Time dt)
 	m_timer++;
 	if (m_timer >= 5)
 	{
-		if (m_playerRect.left >= 288)
+		if (m_playerRect.left >= 131)
 		{
 			m_timer = 0;
 			m_playerRect.left = 0;
@@ -41,7 +41,7 @@ void SplashScreen::update(sf::Time dt)
 		else
 		{
 			m_timer = 0;
-			m_playerRect.left += 32;
+			m_playerRect.left += 13;
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))

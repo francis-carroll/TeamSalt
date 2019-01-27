@@ -48,9 +48,17 @@ void GamePlay::checkPlayerCollision()
 {
 	for (int i = 0; i < MAX_TILES; i++)
 	{
+		/*if (m_player.getPos().x - (m_player.getSprite().getGlobalBounds().width / 2) < m_level1.m_groundTiles[i].getPosition().x)
+		{
+			m_player.setPos(m_player.getPos() + sf::Vector2f{ 0.05f,0.0f });
+		}
+		else if (m_player.getPos().x + (m_player.getSprite().getGlobalBounds().width / 2) > m_level1.m_groundTiles[i].getPosition().x)
+		{
+			m_player.setPos(m_player.getPos() - sf::Vector2f{ 0.05f,0.0f });
+		}*/
 		if (m_player.getSprite().getGlobalBounds().intersects(m_level1.m_groundTiles[i].getSprite().getGlobalBounds()))
 		{
-			m_player.isOnGround();
+			m_player.isOnGround(m_player.getPos());
 			break;
 		}
 		else
