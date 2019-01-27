@@ -4,7 +4,6 @@
 #include "Controller.h"
 #include "Globals.h"
 #include "MyVector2D.h"
-
 enum playerstate 
 {
 	ground,
@@ -28,8 +27,10 @@ public:
 	void animation();
 
 	void movement(sf::Time dt);
+	void isOnGround();
 
 	sf::Vector2f getPos();
+	sf::Sprite getSprite() { return playerSprite; }
 
 private:
 
@@ -37,6 +38,7 @@ private:
 	sf::Texture playerTexture;
 
 	Xbox360Controller m_controller;
+
 
 	float xPosSprite{ 0 };
 	float yPosSprite{ 0 };
@@ -57,3 +59,4 @@ private:
 
 	bool m_move;
 };
+

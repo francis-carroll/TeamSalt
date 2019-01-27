@@ -1,7 +1,7 @@
 #include "Ground.h"
 
 Ground::Ground() :
-	m_pos{ 0,0 }
+	m_pos{ 1000,1000 }
 {
 }
 
@@ -42,5 +42,6 @@ void Ground::setupSprite()
 		std::cout << "Error loading greound tex" << std::endl;
 	}
 	m_sprite.setTexture(m_spriteTex);
+	m_sprite.setScale(2, 2);
 	m_sprite.setPosition(m_pos);
 }

@@ -20,6 +20,7 @@ public:
 private:
 	void setupText();
 	void setupSprite();
+	void checkPlayerCollision();
 
 	sf::View m_view;
 	player m_player;

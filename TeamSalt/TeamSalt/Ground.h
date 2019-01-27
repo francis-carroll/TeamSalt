@@ -13,6 +13,7 @@ public:
 	void update(sf::Time dt);
 	void setPosition(sf::Vector2f t_pos);
 	sf::Vector2f getPosition();
+	sf::Sprite getSprite() { return m_sprite;  }
 private:
 	void setupSprite();
 
