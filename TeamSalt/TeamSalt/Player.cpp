@@ -108,7 +108,7 @@ void player::movement(sf::Time dt)
 	}
 
 	std::cout << playerSprite.getPosition().y << std::endl;
-	if (playerSprite.getPosition().x <= 750 + (playerSprite.getTextureRect().width * 3) )
+	if (playerSprite.getPosition().x <= 855 + (playerSprite.getTextureRect().width * 3) )
 	{
 		playerSprite.setPosition(playerSprite.getPosition() + sf::Vector2f{ 1.0f,0.0f });
 		m_velocity.x = 0;
@@ -127,7 +127,6 @@ void player::isOnGround(sf::Vector2f t_pos)
 	m_previousPos = t_pos;
 	m_velocity.y = 0;
 	m_acceleration.y = 0;
-	m_acceleration.x = 0;
 	currentState = playerstate::ground;
 	playerSprite.setPosition(m_previousPos - sf::Vector2f{0.0f,0.3f});
 }
