@@ -31,9 +31,10 @@ void SplashScreen::draw(sf::RenderWindow & t_window)
 void SplashScreen::update(sf::Time dt)
 {
 	m_timer++;
-	if (m_timer >= 5)
+
+	if ((m_timer % 5) == 0)
 	{
-		if (m_playerRect.left >= 131)
+		if (m_playerRect.left >= 117)
 		{
 			m_timer = 0;
 			m_playerRect.left = 0;
@@ -81,7 +82,7 @@ void SplashScreen::setupSprite()
 	m_player.setTexture(m_playertex,true);
 	m_player.setScale(15, 15);
 	m_player.setTextureRect(m_playerRect);
-	m_player.setPosition(sf::Vector2f{ 900,650 });
+	m_player.setPosition(sf::Vector2f{ 1000,950 });
 
 
 	if (!m_backgroundTex.loadFromFile("resources/images/backgrounds/splashScreen.png"))
