@@ -8,17 +8,6 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 1600, 1200, 32 }, "Mimi" },
 	m_exitGame{ false }
 {
-	try
-	{
-		LevelLoader::load(1, m_level);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "failure loading the level" << std::endl;
-		std::cout << e.what() << std::endl;
-		throw e;
-	}
-
 	setup();
 }
 

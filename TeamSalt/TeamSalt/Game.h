@@ -7,7 +7,6 @@
 #include "Splash.h"
 #include "Author.h"
 #include "GamePlay.h"
-#include "LevelLoader.h"
 #include "Player.h"
 
 // pete is cool 
@@ -25,8 +24,6 @@ private:
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
-
-	LevelData m_level;
 
 	//instances of each screens
 	LicenceScreen m_licenceScreen;

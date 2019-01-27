@@ -133,7 +133,6 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Licence.h" />
     <ClInclude Include="MyVector2D.h" />
     <ClInclude Include="Player.h" />
@@ -147,7 +146,6 @@
     <ClCompile Include="GamePlay.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="Licence.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyVector2D.cpp" />
