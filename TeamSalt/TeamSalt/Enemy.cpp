@@ -9,21 +9,22 @@ Enemy::Enemy() :
 
 void Enemy::init()
 {
-	if (!m_bodyTexutre.loadFromFile("resources//images//characters//policemanSprite.png"))
+	if (!m_PoliceTexture.loadFromFile("resources\\images\\characters\\policemanSpriteSheet.png"))
 	{
 		std::cout << "error loading police man sprite";
 	}
-	m_body.setTexture(m_bodyTexutre);
-	m_body.setTextureRect(sf::IntRect(m_enemyXPos, m_enemyYPos, m_textureWidth, m_textureHeight));
-	m_body.setOrigin(m_textureWidth / 2.0, m_textureHeight / 2.0);
-	m_body.setScale(xScaler, xScaler);
-	m_body.setPosition(1500, SCREEN_HEIGHT - (m_textureHeight * yScaler + m_textureHeight));
-	m_velocity = { -2.0,0.0 };
+	m_enemySprite.setTexture(m_PoliceTexture);
+
+	m_enemySprite.setTextureRect(sf::IntRect(m_enemyXPos, m_enemyYPos, m_textureWidth, m_textureHeight));
+	m_enemySprite.setOrigin(m_textureWidth / 2.0, m_textureHeight / 2.0);
+	m_enemySprite.setScale(4,4);
+
+	m_enemySprite.setPosition(1500, 1200);
 }
 
 void Enemy::draw(sf::RenderWindow & m_window)
 {
-	m_window.draw(m_body);
+	m_window.draw(m_enemySprite);
 }
 
 void Enemy::update()
@@ -34,35 +35,23 @@ void Enemy::update()
 
 void Enemy::move()
 {
-	if (getPosition().x <= 20)
-	{
-		m_velocity.x *= -1;
-		m_textureWidth = -20;
-	}
-	else if (getPosition().x > SCREEN_WIDTH - 80)
-	{
-		m_velocity.x *= -1;
-		m_textureWidth = 20;
-	}
-	m_body.move(m_velocity);
+	m_enemySprite.setPosition(m_enemySprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * GRAVITY * (time * time)));
+	//m_velocity = m_velocity + (GRAVITY * time);
 }
 
 void Enemy::animation()
 {
 	m_animationTimer++;
+
 	if ((m_animationTimer % 15) == 0)
 	{
-		m_enemyXPos += 20;
+		m_enemyXPos += 21;
 	}
 	else if (m_enemyXPos >= 60 && m_textureWidth > 0)
 	{
 		m_animationTimer = 0;
 		m_enemyXPos = 0;
 	}
-	else if (m_enemyXPos >= 60 && m_textureWidth < 0)
-	{
-		m_animationTimer = 0;
-		m_enemyXPos = 20;
-	}
-	m_body.setTextureRect(sf::IntRect(m_enemyXPos, m_enemyYPos, m_textureWidth, m_textureHeight));
+
+	m_enemySprite.setTextureRect(sf::IntRect(m_enemyXPos, m_enemyYPos, m_textureWidth, m_textureHeight));
 }

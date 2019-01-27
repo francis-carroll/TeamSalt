@@ -27,23 +27,22 @@ public:
 
 	void animation();
 
-	sf::Vector2f getPosition() { return m_body.getPosition(); }
+	sf::Vector2f getPosition() { return m_enemySprite.getPosition(); }
+
 private:
-	sf::Texture m_bodyTexutre; 
-	sf::Sprite m_body;
+	sf::Texture m_PoliceTexture; 
+	sf::Sprite m_enemySprite;
 
 	float m_enemyXPos{ 0 };
 	float m_enemyYPos{ 0 };
 	float m_textureWidth{ 20 };
 	float m_textureHeight{ 29 };
 
-	int xScaler{ 4 };
-	int yScaler{ 4 };
-
 	int m_animationTimer{ 0 };
 
 	enemyState enemyState;
 
-	MyVector2D m_velocity;
+	float time{ 1.0f / 5.0f };
 
+	sf::Vector2f m_velocity{ 0,0 };
 };
