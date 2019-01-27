@@ -1,5 +1,6 @@
 #include "Player.h"
 
+
 player::player() :
 	m_move(false)
 {
@@ -107,8 +108,8 @@ void player::movement(sf::Time dt)
 		{
 			if (m_controller.m_currentState.A == true)
 			{
-				m_velocity.y = -50;
-				m_acceleration.y = -50;
+				m_velocity.y = -80;
+				m_acceleration.y = -80;
 				currentState = falling;
 			}
 		}

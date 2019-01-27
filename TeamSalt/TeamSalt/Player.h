@@ -4,7 +4,6 @@
 #include "Controller.h"
 #include "Globals.h"
 #include "MyVector2D.h"
-
 enum playerstate 
 {
 	ground,
@@ -57,3 +56,4 @@ private:
 
 	bool m_move;
 };
+

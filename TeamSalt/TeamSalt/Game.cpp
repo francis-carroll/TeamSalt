@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::Licence};
+GameMode Game::m_currentMode{ GameMode::GamePlay};
 
 
 Game::Game() :
