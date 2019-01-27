@@ -6,9 +6,10 @@
 #include "Globals.h"
 
 
-enum enemyState
+enum class  enemyState
 {
-	walking,
+	walk,
+	falling,
 	hunting
 };
 
@@ -27,7 +28,11 @@ public:
 
 	void animation();
 
-	sf::Vector2f getPosition() { return m_enemySprite.getPosition(); }
+	void isOnGround();
+
+	void falling();
+
+	sf::Sprite getSprite() { return m_enemySprite; }
 
 private:
 	sf::Texture m_PoliceTexture; 
@@ -44,5 +49,7 @@ private:
 
 	float time{ 1.0f / 5.0f };
 
-	sf::Vector2f m_velocity{ 0,0 };
+	sf::Vector2f m_velocity{ -1,0 };
+
+	sf::Vector2f m_acceleration{ -1,0 };
 };

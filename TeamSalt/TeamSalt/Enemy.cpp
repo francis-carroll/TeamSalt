@@ -2,7 +2,7 @@
 #include "enemy.h"
 
 Enemy::Enemy() :
-	enemyState{ walking }
+	enemyState{enemyState::hunting}
 {
 
 }
@@ -35,8 +35,18 @@ void Enemy::update()
 
 void Enemy::move()
 {
-	m_enemySprite.setPosition(m_enemySprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * GRAVITY * (time * time)));
-	//m_velocity = m_velocity + (GRAVITY * time);
+	if (enemyState != enemyState::walk)
+	{
+		m_enemySprite.setPosition(m_enemySprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * GRAVITY * (time * time)));
+		m_velocity = m_velocity + (GRAVITY * time);
+	}
+	else
+	{
+		m_enemySprite.setPosition(m_enemySprite.getPosition() + sf::Vector2f((m_velocity * time)) + (0.5f * m_acceleration * (time * time)));
+		m_velocity = m_velocity + (m_acceleration * time);
+	}
+
+	
 }
 
 void Enemy::animation()
@@ -54,4 +64,15 @@ void Enemy::animation()
 	}
 
 	m_enemySprite.setTextureRect(sf::IntRect(m_enemyXPos, m_enemyYPos, m_textureWidth, m_textureHeight));
+}
+
+void Enemy::isOnGround()
+{
+	enemyState = enemyState::walk;
+	m_velocity.y = 0;
+}
+
+void Enemy::falling()
+{
+	enemyState = enemyState::falling;
 }

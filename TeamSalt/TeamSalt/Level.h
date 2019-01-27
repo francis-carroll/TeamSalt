@@ -14,6 +14,7 @@ public:
 	void update(sf::Time dt);
 
 	Ground m_groundTiles[MAX_TILES];
+
 private:
 	void setupSprite();
 	void setupText();
