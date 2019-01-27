@@ -55,7 +55,7 @@ void Level::setupSprite()
 	m_bgLayer3.setTexture(m_bgLayer3Tex);
 	m_bgLayer3.setScale(2, 2);
 	m_bgLayer3.setPosition(sf::Vector2f{ 0.0f,-800.0f });*/
-	if (!m_texture.loadFromFile("resources/images/backgrounds/level1Screen.png"))
+	if (!m_texture.loadFromFile("resources/images/backgrounds/level1Scrren.png"))
 	{
 		std::cout << "Error loading level1Screen" << std::endl;
 	}
