@@ -122,12 +122,14 @@ void player::movement(sf::Time dt)
 	}
 }
 
-void player::isOnGround()
+void player::isOnGround(sf::Vector2f t_pos)
 {
+	m_previousPos = t_pos;
 	m_velocity.y = 0;
 	m_acceleration.y = 0;
+	m_acceleration.x = 0;
 	currentState = playerstate::ground;
-	playerSprite.setPosition(playerSprite.getPosition() - sf::Vector2f{ 0.0f,0.3f });
+	playerSprite.setPosition(m_previousPos - sf::Vector2f{0.0f,0.3f});
 }
 
 void player::isFalling()

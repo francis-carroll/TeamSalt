@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <iostream>
 
-GameMode Game::m_currentMode{ GameMode::GamePlay};
+GameMode Game::m_currentMode{ GameMode::Splash};
 
 
 Game::Game() :
