@@ -42,25 +42,25 @@ void player::animation()
 
 	if (m_controller.m_currentState.LeftThumbStick.x > 0)
 	{
-		rectWidth = -25;
+		rectWidth = -13;
 	}
 	else if (m_controller.m_currentState.LeftThumbStick.x < 0)
 	{
-		rectWidth = 25;
+		rectWidth = 13;
 	}
 
 	if ((animationTimer % 5) == 0)
 	{
-		xPosSprite += 32;
+		xPosSprite += 13;
 	}
-	else if (xPosSprite >= 288 && rectWidth > 0)
+	else if (xPosSprite >= 131-13 && rectWidth > 0)
 	{
 		xPosSprite = 0;
 		animationTimer = 0;
 	}
-	else if(xPosSprite >= 288 && rectWidth < 0)
+	else if(xPosSprite >= 131-13 && rectWidth < 0)
 	{
-		xPosSprite = 32;
+		xPosSprite = 13;
 		animationTimer = 0;
 	}
 

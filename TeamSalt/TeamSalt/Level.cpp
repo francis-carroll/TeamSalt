@@ -84,7 +84,11 @@ void Level::setupTiles()
 	{
 		if (i != 0 && m_groundTiles[i - 1].getPosition().x < 6310)
 		{
-			m_groundTiles[i].setPosition(sf::Vector2f{ 164.0f * i, 1783 });
+			m_groundTiles[i].setPosition(sf::Vector2f{ 164.0f * i, 1783.0f });
 		}
+	}
+	for (int i = 27; i < 31; i++)
+	{
+			m_groundTiles[i].setPosition(sf::Vector2f{ 200.0f * (i-27), 1500.0f });
 	}
 }

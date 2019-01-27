@@ -42,8 +42,8 @@ private:
 
 	float xPosSprite{ 0 };
 	float yPosSprite{ 0 };
-	float rectWidth{ 25 };
-	float rectHeight{ 33 };
+	float rectWidth{ 13 };
+	float rectHeight{ 10 };
 
 	int animationTimer{ 0 };
 
