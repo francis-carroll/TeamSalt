@@ -31,7 +31,9 @@ void GamePlay::update(sf::Time dt)
 	m_level1.update(dt);
 	m_player.update(dt);
 	m_enemy.update();
+	checkPlayerCollision();
 	m_view.setCenter(m_player.getPos());
+
 }
 
 void GamePlay::setupText()
@@ -40,4 +42,15 @@ void GamePlay::setupText()
 
 void GamePlay::setupSprite()
 {
+}
+
+void GamePlay::checkPlayerCollision()
+{
+	for (int i = 0; i < MAX_TILES; i++)
+	{
+		if (m_player.getSprite().getGlobalBounds().intersects(m_level1.m_groundTiles[i].getSprite().getGlobalBounds()))
+		{
+			m_player.isOnGround();
+		}
+	}
 }

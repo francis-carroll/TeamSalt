@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 player::player() :
 	m_move(false)
 {
@@ -97,12 +96,6 @@ void player::movement(sf::Time dt)
 			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity.x, m_velocity.y);
 		}
 
-		if (playerSprite.getPosition().y > 1800 && currentState == falling)
-		{
-			m_velocity.y = 0;
-			m_acceleration.y = 0; 
-			currentState = ground;
-		}
 
 		if (currentState != falling && currentState != jump)
 		{
@@ -128,6 +121,14 @@ void player::movement(sf::Time dt)
 		m_velocity.x = 0;
 		m_acceleration.x = 0;
 	}
+}
+
+void player::isOnGround()
+{
+	m_velocity.y = 0;
+	m_acceleration.y = 0;
+	currentState = playerstate::ground;
+	playerSprite.setPosition(playerSprite.getPosition() - sf::Vector2f{ 0.0f,0.3f });
 }
 
 sf::Vector2f player::getPos()
