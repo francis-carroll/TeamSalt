@@ -40,8 +40,8 @@ private:
 
 	float m_enemyXPos{ 0 };
 	float m_enemyYPos{ 0 };
-	float m_textureWidth{ 20 };
-	float m_textureHeight{ 29 };
+	float m_textureWidth{ 18 };
+	float m_textureHeight{ 31 };
 
 	int m_animationTimer{ 0 };
 
@@ -49,7 +49,7 @@ private:
 
 	float time{ 1.0f / 5.0f };
 
-	sf::Vector2f m_velocity{ -1,0 };
+	sf::Vector2f m_velocity{ -10,0 };
 
-	sf::Vector2f m_acceleration{ -1,0 };
+	sf::Vector2f m_acceleration{ -10,0 };
 };

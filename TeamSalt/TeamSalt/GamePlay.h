@@ -24,7 +24,7 @@ private:
 
 	sf::View m_view;
 	player m_player;
-	Enemy m_enemy;
+	//Enemy m_enemy;
 	Level m_level1;
 };
 

@@ -55,9 +55,9 @@ void Enemy::animation()
 
 	if ((m_animationTimer % 15) == 0)
 	{
-		m_enemyXPos += 21;
+		m_enemyXPos += 19;
 	}
-	else if (m_enemyXPos >= 60 && m_textureWidth > 0)
+	else if (m_enemyXPos >= 57 && m_textureWidth > 0)
 	{
 		m_animationTimer = 0;
 		m_enemyXPos = 0;
@@ -69,7 +69,7 @@ void Enemy::animation()
 void Enemy::isOnGround()
 {
 	enemyState = enemyState::walk;
-	m_velocity.y = 0;
+	m_velocity.y = -9.9;
 }
 
 void Enemy::falling()
