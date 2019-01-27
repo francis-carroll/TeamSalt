@@ -53,7 +53,7 @@ void player::animation()
 	{
 		xPosSprite += 13;
 	}
-	else if (xPosSprite >= 131-13 && rectWidth > 0)
+	else if (xPosSprite >= 118 && rectWidth > 0)
 	{
 		xPosSprite = 0;
 		animationTimer = 0;
@@ -128,6 +128,11 @@ void player::isOnGround()
 	m_acceleration.y = 0;
 	currentState = playerstate::ground;
 	playerSprite.setPosition(playerSprite.getPosition() - sf::Vector2f{ 0.0f,0.3f });
+}
+
+void player::isFalling()
+{
+	currentState = playerstate::falling;
 }
 
 sf::Vector2f player::getPos()

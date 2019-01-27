@@ -89,6 +89,6 @@ void Level::setupTiles()
 	}
 	for (int i = 27; i < 31; i++)
 	{
-			m_groundTiles[i].setPosition(sf::Vector2f{ 200.0f * (i-27), 1500.0f });
+			m_groundTiles[i].setPosition(sf::Vector2f{ 1500.0f +(164.0f * (i-27)), 1500.0f });
 	}
 }

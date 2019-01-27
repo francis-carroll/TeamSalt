@@ -51,6 +51,11 @@ void GamePlay::checkPlayerCollision()
 		if (m_player.getSprite().getGlobalBounds().intersects(m_level1.m_groundTiles[i].getSprite().getGlobalBounds()))
 		{
 			m_player.isOnGround();
+			break;
+		}
+		else
+		{
+			m_player.isFalling();
 		}
 	}
 }

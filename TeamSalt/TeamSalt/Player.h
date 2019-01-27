@@ -28,6 +28,7 @@ public:
 
 	void movement(sf::Time dt);
 	void isOnGround();
+	void isFalling();
 
 	sf::Vector2f getPos();
 	sf::Sprite getSprite() { return playerSprite; }
