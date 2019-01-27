@@ -91,4 +91,16 @@ void Level::setupTiles()
 	{
 			m_groundTiles[i].setPosition(sf::Vector2f{ 1500.0f +(164.0f * (i-27)), 1500.0f });
 	}
+	for (int i = 31; i < 33; i++)
+	{
+		m_groundTiles[i].setPosition(sf::Vector2f{ 2000.0f + (164.0f * (i - 31)), 1200.0f });
+	}
+	for (int i = 33; i < 35; i++)
+	{
+		m_groundTiles[i].setPosition(sf::Vector2f{ 2500.0f + (164.0f * (i - 33)), 1627.0f });
+	}
+	for (int i = 35; i < 38; i++)
+	{
+		m_groundTiles[i].setPosition(sf::Vector2f{ 2700.0f + (164.0f * (i - 35)), 1420.0f });
+	}
 }
