@@ -96,7 +96,6 @@ void player::movement(sf::Time dt)
 			m_acceleration = m_gravity.y * sf::Vector2f(m_velocity.x, m_velocity.y);
 		}
 
-
 		if (currentState != falling && currentState != jump)
 		{
 			if (m_controller.m_currentState.A == true)
@@ -108,7 +107,7 @@ void player::movement(sf::Time dt)
 		}
 	}
 
-	std::cout << playerSprite.getPosition().x << std::endl;
+	std::cout << playerSprite.getPosition().y << std::endl;
 	if (playerSprite.getPosition().x <= 750 + (playerSprite.getTextureRect().width * 3) )
 	{
 		playerSprite.setPosition(playerSprite.getPosition() + sf::Vector2f{ 1.0f,0.0f });
