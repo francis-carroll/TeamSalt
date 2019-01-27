@@ -80,11 +80,11 @@ void Level::setupText()
 
 void Level::setupTiles()
 {
-	for (int i = 0; i < MAX_TILES; i++)
+	for (int i = 0; i < 27; i++)
 	{
 		if (i != 0 && m_groundTiles[i - 1].getPosition().x < 6310)
 		{
-			m_groundTiles[i].setPosition(sf::Vector2f{ 164.0f * i, 1900 });
+			m_groundTiles[i].setPosition(sf::Vector2f{ 164.0f * i, 1700 });
 		}
 	}
 }
